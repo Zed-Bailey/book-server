@@ -39,16 +39,16 @@ class Upload extends Component
 
         // book may not have a cover
         if($img != null) {
-            $path = $file_name . '.jpg';
-            Storage::put('public/images/' . $path, $img);
-            $book->cover_path = $path;
+            $img_path = $file_name . '.jpg';
+            Storage::put('public/images/' . $img_path, $img);
+            $book->cover_path = $img_path;
         }
 
         $book->authors = join(',',  $epub->getAuthors());
         $book->title = $epub->getTitle();
-        $book->file_name =
+        $book->file_name = $file_name . '.epub';
         $book->file_path = $path;
-        $book->description = $epub->getDescription();
+        $book->description = strip_tags($epub->getDescription());
 
         $book->save();
 
