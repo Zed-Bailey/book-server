@@ -9,6 +9,7 @@ export default {
         extend: {
             colors: {
                 "just-black": "#0e100f",
+                "just-black-surface": "#d2d4ba",
                 "surface-white" : "#fffce1"
             }
         },
