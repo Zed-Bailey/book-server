@@ -6,8 +6,9 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
 
-        @vite('resources/css/app.css')
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <title>{{ $title ?? 'Page Title' }}</title>
     </head>

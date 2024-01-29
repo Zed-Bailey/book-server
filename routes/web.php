@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', \App\Livewire\Index::class);
-Route::get('/library', \App\Livewire\Library::class);
+Route::get('/library', \App\Livewire\Library::class)->name('library');
 Route::get('/library/{id}', \App\Livewire\BookDetail::class);
 
 Route::get('/upload', \App\Livewire\Upload::class);
