@@ -8,7 +8,7 @@
 
             <div class="flex justify-evenly mt-10">
                 <button class="">Read</button>
-                <button>Download</button>
+                <button wire:click="downloadClicked" class="border-2 rounded-lg bg-blue-800 p-2 px-4">Download</button>
             </div>
         </div>
     </div>

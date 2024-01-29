@@ -28,6 +28,11 @@ class BookDetail extends Component
         return $this->redirect('/library');
     }
 
+
+    function downloadClicked() {
+        return Storage::download('public/books/' . $this->book->file_name, $this->book->title);
+    }
+
     public function render()
     {
         return view('livewire.book-detail');
