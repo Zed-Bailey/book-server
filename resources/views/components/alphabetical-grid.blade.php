@@ -1,25 +1,28 @@
 <div>
-    <div class="sticky w-full top-16  bg-just-black">
-        <p>A</p>
-    </div>
 
+    @php
+    $alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
+    @endphp
 
-    @foreach($books as $b)
-        <a wire:navigate href="/library/{{$b->id}}" class="group w-56 flex flex-col">
-            <img class="w-56 h-72 rounded-lg" src="{{asset('storage/images/' . $b->cover_path)}}" alt="{{$b->title}} cover "/>
-            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out ">
-                <p class="truncate">{{$b->title}}</p>
-            </div>
-        </a>
+    @foreach($alphabet as $letter)
+        @php
 
+        $filtered = $books->filter(function(\App\Models\Book $book) use($letter) {
+            error_log($letter);
+            error_log(str_starts_with(strtoupper($book->title), $letter) ? "true" : 'false');
+            return str_starts_with(strtoupper($book->title), $letter);
+        })
+        @endphp
+        <div class="sticky w-full top-16  bg-just-black">
+            <p class="font-bold text-lg p-2">{{$letter}}</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+            @foreach($filtered as $b)
+                <x-book-card :book="$b"/>
+            @endforeach
+        </div>
     @endforeach
 
-    <div class="sticky w-full top-16 bg-just-black">
-        <p>B</p>
-    </div>
-    <div class="bg-red-50 w-full h-96"></div>
-    <div class="sticky w-full top-16 bg-just-black">
-        <p>C</p>
-    </div>
-    <div class="bg-red-50 w-full h-96"></div></div>
+</div>
