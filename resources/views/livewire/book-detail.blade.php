@@ -1,4 +1,9 @@
 <div>
+    <div class="flex justify-end mb-5">
+        <button class="" wire:click="$dispatch('openModal', { component: 'edit-book-modal' })" >Edit Book</button>
+        <button onclick="Livewire.dispatch('openModal', { component: 'edit-book-modal' })">Edit User</button>
+    </div>
+
     <div class="flex flex-col align-center space-x-2.5 space-y-2.5 md:flex-row">
         <img src="{{asset('storage/images/' . $book->cover_path)}}" class="w-72 rounded-lg self-center md:self-auto"/>
 
