@@ -11,6 +11,7 @@ use Livewire\WithFileUploads;
 class Upload extends Component
 {
     use WithFileUploads;
+
     public $bookUpload;
 
     public function render()
@@ -52,5 +53,6 @@ class Upload extends Component
 
         $book->save();
 
+        $this->bookUpload = null;
     }
 }

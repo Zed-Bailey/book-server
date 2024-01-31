@@ -30,6 +30,9 @@
                         <a wire:navigate href="/upload">Upload</a>
                     </li>
 
+                    <li class="hover:underline transition-transform hover:cursor-pointer">
+                        <a href="/kindle">Kindle Directory</a>
+                    </li>
                 </ul>
             </div>
 
