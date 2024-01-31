@@ -3,10 +3,12 @@
 namespace App\Livewire;
 
 use App\Models\Book;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class Library extends Component
 {
+    #[Url]
     public $searchQuery = '';
 
 

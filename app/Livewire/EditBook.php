@@ -57,7 +57,6 @@ class EditBook extends Component
         $coverPath = $this->saveCover();
         error_log($coverPath);
         $epub->setCover(Storage::path('public/images/'.$coverPath), 'image/jpeg');
-//        $epub->setCover('public/images/' . $coverPath, 'image/jpg');
 
         try {
             $epub->save();
