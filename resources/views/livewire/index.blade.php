@@ -1,29 +1,37 @@
 <div>
 
-    <div class="flex overflow-scroll mb-10 justify-center">
-        <div class="w-56 h-72 bg-red-200 rounded-lg">
+    @php
+    $book = $allBooks[0];
+    @endphp
 
-        </div>
+    <div class="flex space-x-2.5">
+        <input class="w-full p-2 border-2 border-surface-white text-surface-white bg-surface-white bg-opacity-0 rounded-lg
+        focus:text-just-black focus:bg-opacity-100 focus:transition-all focus:ease-in-out focus:duration-300"
+               placeholder="Search Books..."
+        />
+        <button class="p-2 bg-surface-white rounded-lg">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                <path d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"></path>
+            </svg>
+        </button>
     </div>
 
-{{--    <form method="POST" action="/file" class="flex flex-col items-center" enctype="multipart/form-data">--}}
-{{--        @csrf--}}
-{{--        <div class="flex items-center justify-center w-full">--}}
-{{--            <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer">--}}
-{{--                <div class="flex flex-col items-center justify-center pt-5 pb-6">--}}
-{{--                    <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">--}}
-{{--                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>--}}
-{{--                    </svg>--}}
-{{--                    <p class="mb-2 text-sm text-gray-500 "><span class="font-semibold">Click to upload</span> or drag and drop</p>--}}
-{{--                    <p class="text-xs text-gray-500">PDF, EPUB</p>--}}
-{{--                </div>--}}
-{{--                <input id="dropzone-file" type="file" class="hidden" name="newFile" accept="application/epub+zip, application/pdf" />--}}
-{{--            </label>--}}
+    <div class="mt-28">
+        @php
+            // gets the last 5 books added
+            $recentlyAdded = \App\Models\Book::latest()->take(5)->get();
+        @endphp
+        <h1 class="text-2xl mb-5">Recently Added</h1>
+        <div class="flex flex-row overflow-scroll gap-5">
+            @foreach($recentlyAdded as $ra)
+                <div class="relative">
+                    <span class="absolute top-0 right-0 rounded-full bg-red-600 px-2 py-1">
+                        NEW
+                    </span>
+                    <x-book-card :book="$ra"></x-book-card>
+                </div>
 
-{{--        </div>--}}
-
-
-{{--        <button type="submit" class="bg-slate-800 p-2 rounded-md w-48 mt-10">Upload</button>--}}
-{{--    </form>--}}
-
+            @endforeach
+        </div>
+    </div>
 </div>
