@@ -35,9 +35,9 @@ class EditBook extends Component
     public function saveCover() {
         if($this->newCoverPhoto != null) {
             $fileName = explode('.', $this->book->file_name)[0] . '.jpg';
-            Storage::disk()->delete('public/images/' . $this->book->cover_path);
+            Storage::disk()->delete('storage/public/images/' . $this->book->cover_path);
 
-            $path = $this->newCoverPhoto->storePubliclyAs(path:'images', name: $fileName);
+            $path = $this->newCoverPhoto->storeAs(path:'public/images', name: $fileName);
             error_log($path);
             return $fileName;
 
@@ -55,7 +55,8 @@ class EditBook extends Component
 
 
         $coverPath = $this->saveCover();
-        $epub->setCover(Storage::url($coverPath), 'image/jpg');
+        error_log($coverPath);
+        $epub->setCover(Storage::path('public/images/'.$coverPath), 'image/jpeg');
 //        $epub->setCover('public/images/' . $coverPath, 'image/jpg');
 
         try {

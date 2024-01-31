@@ -40,7 +40,7 @@ class Upload extends Component
         // book may not have a cover
         if($img != null) {
             $img_path = $file_name . '.jpg';
-            Storage::put('public/images/' . $img_path, $img);
+            Storage::disk()->put('public/images/' . $img_path, $img);
             $book->cover_path = $img_path;
         }
 
