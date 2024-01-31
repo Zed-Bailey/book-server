@@ -23,15 +23,11 @@ class BookDetail extends Component
      */
     public function deleteClicked() {
 
-        Storage::disk()->delete(['public/images/' . $this->book->cover_path, 'public/books/' . $this->book->file_name]);
+        Storage::disk()->delete(['images/' . $this->book->cover_path, 'books/' . $this->book->file_name]);
         $this->book->delete();
         return $this->redirect('/library');
     }
 
-
-    function downloadClicked() {
-        return Storage::download('public/books/' . $this->book->file_name, $this->book->title);
-    }
 
     public function render()
     {

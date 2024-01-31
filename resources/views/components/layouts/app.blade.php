@@ -6,7 +6,6 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -14,6 +13,8 @@
     </head>
 
     <body class="antialiased bg-just-black text-surface-white p-5">
+
+
         <nav class="h-16 flex justify-between align-middle items-center mb-10 sticky top-0 bg-just-black bg-opacity-75 backdrop-blur-xl ">
             <h1 class="text-2xl font-bold min-w-fit">Book Server</h1>
 
