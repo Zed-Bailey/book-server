@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // livewire views
-Route::get('/', \App\Livewire\Index::class);
+Route::get('/', \App\Livewire\Home::class);
 Route::get('/library', \App\Livewire\Library::class)->name('library');
 Route::get('/library/{id}', \App\Livewire\BookDetail::class);
 Route::get('/library/edit/{id}', \App\Livewire\EditBook::class);

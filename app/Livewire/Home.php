@@ -5,9 +5,11 @@ namespace App\Livewire;
 use App\Models\Book;
 use Livewire\Component;
 
-class Index extends Component
+class Home extends Component
 {
     public $allBooks;
+
+    public $searchQuery = '';
 
     public function mount() {
         $this->allBooks = Book::all();
@@ -15,6 +17,6 @@ class Index extends Component
     public function render()
     {
 
-        return view('livewire.index');
+        return view('livewire.home');
     }
 }
