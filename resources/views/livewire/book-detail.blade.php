@@ -1,7 +1,6 @@
 <div>
     <div class="flex justify-end mb-5">
-        <button class="" wire:click="$dispatch('openModal', { component: 'edit-book-modal' })" >Edit Book</button>
-        <button onclick="Livewire.dispatch('openModal', { component: 'edit-book-modal' })">Edit User</button>
+        <a class="p-2 border-2 border-blue-800 hover:bg-blue-800" wire:navigate href="/library/edit/{{$book->id}}" >Edit Book</a>
     </div>
 
     <div class="flex flex-col align-center space-x-2.5 space-y-2.5 md:flex-row">
@@ -12,8 +11,9 @@
             <p class="mt-5 text-lg font-semibold">{{$book->authors}}</p>
 
             <div class="flex justify-evenly mt-10">
-                <button class="">Read</button>
-                <button wire:click="downloadClicked" class="border-2 rounded-lg bg-blue-800 p-2 px-4">Download</button>
+
+                <a href="/reader/{{$book->id}}" class="border-2 rounded-lg bg-blue-800 p-2 px-4">Read</a>
+                <a href="/download/{{$book->id}}" class="border-2 rounded-lg bg-blue-800 p-2 px-4">Download</a>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
     </p>
 
 
-    <div>
+    <div class="mt-32">
         <button class="border-2 border-red-500 text-red-500 rounded-lg p-2 px-4 hover:bg-red-900" wire:click="deleteClicked">Delete</button>
     </div>
 

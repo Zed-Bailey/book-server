@@ -8,7 +8,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @livewireStyles
+
         <title>{{ $title ?? 'Page Title' }}</title>
     </head>
 
@@ -40,8 +40,5 @@
             {{ $slot }}
         </main>
 
-
-        @livewire('wire-elements-modal')
-        @livewireScripts
     </body>
 </html>

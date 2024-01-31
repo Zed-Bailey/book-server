@@ -9,8 +9,6 @@
         @php
 
         $filtered = $books->filter(function(\App\Models\Book $book) use($letter) {
-            error_log($letter);
-            error_log(str_starts_with(strtoupper($book->title), $letter) ? "true" : 'false');
             return str_starts_with(strtoupper($book->title), $letter);
         })
         @endphp

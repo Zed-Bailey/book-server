@@ -28,13 +28,6 @@ class BookDetail extends Component
         return $this->redirect('/library');
     }
 
-    function saveChangesClicked() {
-
-    }
-
-    function downloadClicked() {
-        return Storage::download('public/books/' . $this->book->file_name, $this->book->title);
-    }
 
     public function render()
     {

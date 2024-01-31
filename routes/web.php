@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\KindleBookListController;
+use \App\Http\Controllers\ReaderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// livewire views
 Route::get('/', \App\Livewire\Index::class);
 Route::get('/library', \App\Livewire\Library::class)->name('library');
 Route::get('/library/{id}', \App\Livewire\BookDetail::class);
-
+Route::get('/library/edit/{id}', \App\Livewire\EditBook::class);
 Route::get('/upload', \App\Livewire\Upload::class);
 
+// controllers
+Route::get('/reader/{id}', [ReaderController::class, 'readBook']);
 Route::get('/kindle', [KindleBookListController::class, 'get']);
-
-Route::post('/file', [FileController::class, 'upload']);
+Route::get('/download/{id}', [FileController::class, 'download']);
