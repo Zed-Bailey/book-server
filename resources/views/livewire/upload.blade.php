@@ -3,7 +3,7 @@
 
     <h1 class="text-3xl mb-5 font-semibold">Upload a new book</h1>
 
-    <form wire:submit="w" class="flex flex-col items-center" enctype="multipart/form-data">
+    <form wire:submit="saveBook" class="flex flex-col items-center" enctype="multipart/form-data">
         @csrf
         <div class="flex items-center justify-center w-full">
 
