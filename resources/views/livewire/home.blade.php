@@ -1,5 +1,5 @@
 <div>
-
+@if(count($allBooks) > 0)
     @php
     $book = $allBooks[0];
     @endphp
@@ -34,4 +34,5 @@
             @endforeach
         </div>
     </div>
+@endif
 </div>
